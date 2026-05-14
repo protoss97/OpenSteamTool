@@ -21,7 +21,7 @@ namespace LuaConfig{
     std::unordered_map<uint64_t, ManifestOverride> ManifestOverrides{};
     std::unordered_map<AppId_t, uint64_t> StatSteamIdSet{};
     std::unordered_set<AppId_t> OwnedAppIdSet{};
-    constexpr uint64_t kDefaultStatSteamId = 76561198028121353ULL;
+    constexpr uint64_t kDefaultStatSteamId = 76561197990329532ULL;
 
     // Case-insensitive function registry: lowercase name → C function
     static std::unordered_map<std::string, lua_CFunction> g_func_registry;
