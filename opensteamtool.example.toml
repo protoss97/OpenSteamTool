@@ -9,8 +9,9 @@ level = "info"
 
 [manifest]
 # Which upstream API to query for depot manifest request codes.
-#   "steamrun"  → https://manifest.steam.run/api/manifest/{gid}
-#   "wudrm"     → http://gmrc.wudrm.com/manifest/{gid}
+#   "opensteamtool" → https://manifest.opensteamtool.com/{gid}   (default)
+#   "wudrm"         → http://gmrc.wudrm.com/manifest/{gid} (recommended for China users)
+#   "steamrun"      → https://manifest.steam.run/api/manifest/{gid}
 # If <Steam>/config/lua/manifest.lua defines fetch_manifest_code(gid) or
 # fetch_manifest_code_ex(app_id, depot_id, gid), those Lua functions take
 # priority over the url setting below.
@@ -43,7 +44,7 @@ level = "info"
 #     end
 #     return nil
 # end
-url = "steamrun"
+url = "opensteamtool"
 
 # HTTP timeouts for manifest requests (milliseconds).
 # timeout_resolve_ms  — DNS resolution        (default: 5000)
@@ -63,3 +64,11 @@ timeout_recv_ms    = 10000
 #   paths = ["D:/my-steam-config/lua"]
 [lua]
 # paths = []
+
+[remote]
+# Optional metadata mirror. Leave unset to use GitHub with jsDelivr fallback.
+# A custom mirror replaces the built-in remote sources and must include all
+# three placeholders: {channel}, {component}, and {sha256}.
+#
+# url_template = "https://your.server/{channel}/{component}/{sha256}.toml"
+# url_template = "https://fast.jsdelivr.net/gh/OpenSteam001/steam-monitor@{channel}/{component}/{sha256}.toml"
